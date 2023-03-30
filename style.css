@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: rgb(5, 10, 25);
-  font-family: Arial, sans-serif;
+  background: linear-gradient(#151315, #0f0f0f);
+  font-family: "Rubik", sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,16 +16,44 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
-  background-color: rgb(5, 10, 25);
+  padding: 0 2em;
 }
 
-.left-section h1 {
-  color: white;
+.right-section {
+  height: 5em;
+  padding: 0 2em;
 }
 
 .right-section {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.right-section a {
+  margin: 0;
+  padding: 0;
+  opacity: 0.2;
+  transition: opacity 100ms linear;
+}
+
+.right-section a.active {
+  opacity: 1;
+}
+
+.right-section a:hover {
+  opacity: 1;
+}
+
+.right-section:has(a:hover) :not(a:hover) {
+  opacity: 0.2;
+}
+
+nav .a:hover {
+  opacity: 1;
 }
 
 .nav-link {
@@ -62,29 +90,13 @@ nav {
   grid-template-rows: auto auto;
   width: 60vw;
 
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  row-gap: 2em;
 
   /* Change the column gap length here */
-  column-gap: 5em;
-}
-
-.title-1 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-
-.title-2 {
-  grid-column-start: 3;
-  grid-column-end: 5;
-}
-
-.title-3 {
-  grid-column-start: 5;
-  grid-column-end: 7;
+  column-gap: 3em;
 }
 
 .image {
@@ -99,6 +111,30 @@ nav {
   grid-row-start: 2;
   grid-column-start: 1;
   grid-column-end: 4;
+}
+
+.placeholder {
+  opacity: 0.2;
+  width: 300px;
+  left: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition-duration: 100ms;
+}
+
+.img-border {
+  position: relative;
+  top: -7.5px;
+  left: calc(-2rem - 15px);
+
+  width: 530px;
+  aspect-ratio: 16/9;
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+
+  /* background-color: aliceblue; */
+  border: 2px rgba(255, 255, 255, 0.2) solid;
 }
 
 .description {
@@ -116,24 +152,186 @@ nav {
   word-spacing: 10px;
 }
 
-.title-spacing {
+.title-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.title-2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.title-3 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+}
+
+.title {
   position: relative;
   top: -3em;
+
+  display: inline;
+  padding: 5px;
+  transition: opacity 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93);
 }
 
 .title-1:hover ~ .elnido,
 .title-2:hover ~ .coron,
 .title-3:hover ~ .ppur {
   position: absolute;
-  bottom: 0;
   left: -2rem;
   opacity: 1;
+}
+
+body:has(.f-elnido:hover) .elnido,
+body:has(.f-coron:hover) .coron,
+body:has(.f-ppur:hover) .ppur {
+  left: -2rem;
+  opacity: 1;
+}
+
+body:has(.f-elnido:hover) .desc-elnido,
+body:has(.f-coron:hover) .desc-coron,
+body:has(.f-ppur:hover) .desc-ppur {
+  right: -2rem;
+  opacity: 1;
+}
+
+.title-1:hover ~ .placeholder,
+.title-2:hover ~ .placeholder,
+.title-3:hover ~ .placeholder {
+  opacity: 0;
 }
 
 .title-1:hover ~ .desc-elnido,
 .title-2:hover ~ .desc-coron,
 .title-3:hover ~ .desc-ppur {
-  bottom: 0;
   right: -2rem;
   opacity: 1;
+}
+
+.title-1:hover ~ .tip,
+.title-2:hover ~ .tip,
+.title-3:hover ~ .tip {
+  opacity: 0;
+}
+
+/* .title:hover {
+  scale: 1.2;
+  transition: scale 200ms linear;
+} */
+
+span {
+  max-width: fit-content;
+}
+h2 {
+  display: inline;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgb(255, 255, 255);
+  border-left: 1px solid rgb(255, 255, 255);
+  display: block;
+
+  transition: height 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93),
+    width 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93);
+}
+
+h2:hover::before {
+  width: 100%;
+  height: 96%;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-right: 1px solid rgb(255, 255, 255);
+  display: block;
+
+  transition: height 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93),
+    width 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93);
+}
+
+h2:hover::after {
+  width: 98%;
+  height: 96%;
+}
+
+.content:has(.title:hover) span:not(.title:hover) {
+  opacity: 0.2;
+}
+
+body:has(.title-1:hover) .f-elnido,
+body:has(.title-2:hover) .f-coron,
+body:has(.title-3:hover) .f-ppur,
+body:has(.title-1:hover) .line-1,
+body:has(.title-2:hover) .line-2,
+body:has(.title-3:hover) .line-3 {
+  opacity: 1;
+}
+
+.tip {
+  opacity: 0.3;
+  word-spacing: 1px;
+  top: 4em;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  transition: opacity 100ms linear;
+}
+
+/* footer */
+
+footer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  width: 100vw;
+  justify-content: center;
+  padding: 3em;
+  gap: 1em;
+}
+
+.f-image-container {
+  display: flex;
+  gap: 2px;
+}
+
+.footer-image {
+  position: relative;
+  top: 0;
+  aspect-ratio: 16/9;
+  width: 50px;
+  opacity: 0.3;
+  transition: opacity 200ms linear,
+    top 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93);
+}
+
+.footer-image:hover {
+  opacity: 1;
+  top: -5px;
+}
+
+body:has(.footer-image:hover) .placeholder,
+body:has(.footer-image:hover) .tip {
+  opacity: 0;
+}
+
+.line {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(transparent, mediumslateblue, transparent);
+  opacity: 0;
+  transition: opacity 200ms linear;
 }
