@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(#151315, #0f0f0f);
+  background-color: #141414;
   font-family: "Rubik", sans-serif;
   height: 100vh;
   display: flex;
@@ -81,8 +81,7 @@ nav .a:hover {
   transform: scaleX(1);
 }
 
-/* Add the previous CSS code here */
-
+/* END NAV, START CONTENT */
 .content {
   position: relative;
   display: grid;
@@ -95,7 +94,6 @@ nav .a:hover {
   transform: translate(-50%, -50%);
   color: white;
 
-  /* Change the column gap length here */
   column-gap: 3em;
 }
 
@@ -289,6 +287,8 @@ body:has(.title-3:hover) .line-3 {
   text-decoration: underline;
   text-underline-offset: 5px;
   transition: opacity 100ms linear;
+
+  font-size: 1.4em;
 }
 
 /* footer */
