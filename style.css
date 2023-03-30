@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(5, 10, 25);
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(5, 10, 25);
+}
+
+.left-section h1 {
+  color: white;
+}
+
+.right-section {
+  display: flex;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: white;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s cubic-bezier(0.09, 0.9, 0.39, 0.93);
+}
+
+.nav-link:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Add the previous CSS code here */
+
+.content {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto auto;
+  width: 60vw;
+
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  row-gap: 2em;
+
+  /* Change the column gap length here */
+  column-gap: 5em;
+}
+
+.title-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.title-2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.title-3 {
+  grid-column-start: 5;
+  grid-column-end: 7;
+}
+
+.image {
+  position: relative;
+  width: 500px;
+  aspect-ratio: 16/9;
+  left: -5rem;
+  opacity: 0;
+  transition: left 500ms cubic-bezier(0.06, 0.9, 0.39, 0.93),
+    opacity 200ms ease-in;
+
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.description {
+  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-column-end: 7;
+
+  position: relative;
+  right: -5rem;
+  opacity: 0;
+  transition: right 500ms cubic-bezier(0.06, 0.9, 0.39, 0.93),
+    opacity 200ms ease-in;
+
+  font-size: 1.5em;
+  word-spacing: 10px;
+}
+
+.title-spacing {
+  position: relative;
+  top: -3em;
+}
+
+.title-1:hover ~ .elnido,
+.title-2:hover ~ .coron,
+.title-3:hover ~ .ppur {
+  position: absolute;
+  bottom: 0;
+  left: -2rem;
+  opacity: 1;
+}
+
+.title-1:hover ~ .desc-elnido,
+.title-2:hover ~ .desc-coron,
+.title-3:hover ~ .desc-ppur {
+  bottom: 0;
+  right: -2rem;
+  opacity: 1;
+}
