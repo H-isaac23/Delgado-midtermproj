@@ -118,6 +118,20 @@ nav .a:hover {
   left: 20vw;
 }
 
+.ver-line.vsec {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  position: absolute;
+  left: -3em;
+}
+
+.grid-container:hover .ver-line.vsec {
+  top: 0;
+  opacity: 1;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -181,6 +195,7 @@ nav .a:hover {
   position: relative;
   transition: transform 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93),
     opacity 100ms linear;
+  will-change: transform;
 }
 
 .sub-image:hover .img-wrapper,
@@ -227,8 +242,8 @@ img {
   right: 0;
 }
 
-.content-two:has(.ky:hover) .v1,
-.content-two:has(.sb:hover) .v2 {
+.grid-container:has(.ky:hover) .v1,
+.grid-container:has(.sb:hover) .v2 {
   opacity: 1;
   top: 0;
 }
@@ -238,6 +253,7 @@ img {
   border-radius: 1vmin;
   opacity: 0.3;
   transition: transform 200ms cubic-bezier(0.06, 0.9, 0.39, 0.93);
+  will-change: transform;
 }
 
 /* End content 1, Start content 2 */
