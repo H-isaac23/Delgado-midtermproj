@@ -254,8 +254,20 @@ body:has(.f-ppur:hover) .desc-ppur {
 span {
   max-width: fit-content;
 }
+
 h2 {
   display: inline;
+}
+
+.title a {
+  color: white;
+  text-decoration: none;
+}
+
+.info {
+  background: linear-gradient(to right, #b62fd8, #cb96d8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2::before {
@@ -298,7 +310,7 @@ h2:hover::after {
   height: 96%;
 }
 
-.content:has(.title:hover) span:not(.title:hover) {
+.content:has(.title:hover) .title:not(.title:hover) {
   opacity: 0.2;
 }
 
