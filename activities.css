@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #141414;
   font-family: "Rubik", sans-serif;
@@ -16,6 +20,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: 7em;
+
+  opacity: 0;
+  animation: 200ms 2.75s showContent linear forwards;
 }
 
 nav {
@@ -113,7 +120,8 @@ nav .a:hover {
 /* Grids */
 
 .content-two {
-  position: relative;
+  position: absolute;
+  top: 7em;
   width: 70vw;
   left: 20vw;
 }
@@ -333,6 +341,123 @@ img {
 /* temporary footer */
 
 .temporary-footer {
-  height: 5em;
+  height: 2em;
   width: 50vw;
+}
+
+/* sticky nav */
+
+.sticky-nav {
+  position: fixed;
+  top: 7em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  min-height: 70vh;
+  width: 10vw;
+
+  gap: 5px;
+}
+
+.snav-item {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  height: 1.5em;
+}
+
+.snav-item-2 {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  height: 1.5em;
+  position: relative;
+  top: 25vh;
+}
+
+.snav-line {
+  height: 1.9em;
+  width: 2px;
+  background-color: #8a8a8a;
+}
+
+.snav-line-2 {
+  position: relative;
+  height: 55vh;
+  width: 2px;
+  background-color: #8a8a8a;
+}
+
+.snav-line,
+.snav-line-2 {
+  opacity: 0;
+  animation: 200ms 500ms showContent linear forwards;
+}
+
+.dest {
+  font-size: 0.75em;
+  font-weight: 100;
+
+  transition: color 300ms linear,
+    transform 200ms cubic-bezier(0.09, 0.9, 0.39, 0.93);
+  position: relative;
+}
+
+.dest a {
+  color: #8a8a8a;
+  text-decoration: none;
+}
+
+.dest:hover,
+.dest:hover a {
+  opacity: 1;
+  color: #b62fd8;
+}
+
+.dest:hover {
+  transform: translateX(1em);
+}
+
+.snav-item:has(.dest:hover) .snav-line {
+  background-color: #b62fd8;
+}
+
+.dest {
+  top: -25em;
+  animation: 2s animateIn cubic-bezier(0.09, 0.9, 0.29, 0.93) forwards;
+}
+
+.d1 {
+  animation-delay: 1300ms;
+}
+
+.d2 {
+  animation-delay: 1200ms;
+}
+
+.d3 {
+  animation-delay: 1100ms;
+}
+
+.d4 {
+  animation-delay: 1000ms;
+}
+
+.d5 {
+  animation-delay: 900ms;
+}
+
+@keyframes animateIn {
+  to {
+    top: 0;
+  }
+}
+
+@keyframes showContent {
+  to {
+    opacity: 1;
+  }
 }
