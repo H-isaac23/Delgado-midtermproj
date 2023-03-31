@@ -160,12 +160,12 @@ nav .a:hover {
 .act-tip {
   grid-row-start: 2;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 6;
   color: white;
   opacity: 0.2;
   transition: opacity 100ms linear;
 
-  font-size: 2em;
+  font-size: 1.25em;
 }
 
 .act-detail {
@@ -266,19 +266,19 @@ img {
 /* End content 1, Start content 2 */
 
 .delicacies:hover .tamilok {
-  transform: translate(-35%, -50%) rotate(-15deg);
+  transform: translate(-35%, -30%) rotate(-15deg);
 }
 
 .delicacies:hover .sisig {
-  transform: translate(-35%, 50%) rotate(-15deg);
+  transform: translate(-35%, 30%) rotate(-15deg);
 }
 
 .delicacies:hover .danggit {
-  transform: translate(35%, -50%) rotate(15deg);
+  transform: translate(35%, -30%) rotate(15deg);
 }
 
 .delicacies:hover .chao-long {
-  transform: translate(35%, 50%) rotate(15deg);
+  transform: translate(35%, 30%) rotate(15deg);
 }
 
 .delicacies:has(.chao-long:hover) .chao-long-det {
@@ -297,6 +297,35 @@ img {
 }
 
 .delicacies:has(.danggit:hover) .danggit-det {
+  opacity: 1;
+  right: 0;
+}
+
+/* Accommodations */
+
+.delicacies:hover .summerdays {
+  transform: translateX(-40%) rotate(-15deg);
+}
+
+.delicacies:hover .hhotel {
+  transform: translateY(-35%);
+}
+
+.delicacies:hover .hop {
+  transform: translateX(40%) rotate(15deg);
+}
+
+.delicacies:has(.summerdays:hover) .summerdays-det {
+  opacity: 1;
+  right: 0;
+}
+
+.delicacies:has(.hhotel:hover) .hhotel-det {
+  opacity: 1;
+  right: 0;
+}
+
+.delicacies:has(.hop:hover) .hop-det {
   opacity: 1;
   right: 0;
 }
